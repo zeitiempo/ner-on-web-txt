@@ -12,7 +12,7 @@ def feat_extr(file_in,file_out,*feat):
         result=line.split()
         i=0
         for token in result:
-            pattern=re.match("(.*)\[.*",token)
+            pattern=re.match("(.*?)\[.*",token)
             if i==0:
                 insert.append(token)
             elif token=="__BOS__" or token=="__EOS__":
