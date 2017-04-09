@@ -1,2 +1,2 @@
-# ner-on-webtxt
+# ner-on-web-txt
 NER on Web Text
