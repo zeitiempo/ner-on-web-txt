@@ -30,3 +30,4 @@ if __name__ == '__main__':
     #model.init_sims(replace=True)
     model.save(outp1)
     model.save_word2vec_format(outp2, binary=False)
+    #如果gensim版本是新的话第32行代码改为：model.wv.save_word2vec_format(outp2, binary=False)
