@@ -1,0 +1,35 @@
+{% extends "index/base.html" %}
+{% block mainbody %}
+<script type="text/javascript">$("#main").addClass('active');</script>
+<div class="container theme-showcase" role="main">
+	<div class="page-header">
+		<h1>预处理</h1>
+	</div>
+	<ul class="font">
+		<li>提供在线预处理展示 </li>
+	</ul>
+	<div class="page-header">
+		<h1>分词</h1>
+	</div>
+	<ul class="font">
+		<li>最大正向匹配（最大词长5）</li>
+		<li>最大逆向匹配（最大词长5）</li>
+		<li>结巴分词（精准模式）</li>
+		<li>Mecab分词（基于条件随机场的分词）</li>
+		<li>深度学习分词（待续）</li>
+	</ul>
+	<div class="page-header">
+		<h1>专名识别</h1>
+	</div>
+	<ul class="font">
+		<li>基于条件随机场的专名识别</li>
+		<li>深度学习专名识别（待续）</li>
+	</ul>
+	<div class="page-header">
+		<h1>性能展示</h1>
+	</div>
+	<ul class="font">
+		<li>专名识别的性能展示</li>
+	</ul>
+</div>
+{% endblock %}
