@@ -1,0 +1,25 @@
+{% extends "index/base.html" %}
+{% block mainbody %}
+<script type="text/javascript">$("#presentation").addClass('active');</script>
+<div class="page-header" id="crf_ner">
+</div>
+<div style="position: fixed;">
+    <div class="container"> 
+        <div class="row"> 
+            <div class="col-md-3">
+                <div class="page-header">
+                    <h4>条件随机场专名识别测试结果</h4>
+                </div>
+                <ul class="nav nav-pills nav-stacked"> 
+                    <li><a href="#loc_crf_ner">地名测试结果</a></li>
+                    <li><a href="#org_crf_ner">组织机构名测试结果</a></li>
+                    <li><a href="#per_crf_ner">人名测试结果</a></li>
+                    <li><a href="#one_crf_ner">其他专名测试结果</a></li>
+                </ul> 
+            </div>
+        </div> 
+    </div>
+</div>
+
+{% include "presentation/eval.html" %}
+{% endblock %}
