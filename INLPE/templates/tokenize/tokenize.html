@@ -1,0 +1,41 @@
+{% extends "index/base.html" %}
+{% block mainbody %}
+<script type="text/javascript">$("#tokenize").addClass('active');</script>
+<div class="container theme-showcase" role="main">
+	<form action="../tokenize/" method="post">
+		{% csrf_token %}
+		<div align="center">
+			<textarea name="sent" style="height: 25%" class="font textarea" placeholder="输入语句">{{ random }}</textarea>
+		</div>
+		<div align="center" style="margin-top: 10px">
+			<input type="submit" class="font btn btn-primary btn-lg" value=" ↓分词↓ ">
+		</div>
+	</form>
+	<div class="page-header">
+		<h3>最大正向匹配：</h3>
+	</div>
+	<textarea style="height: 10%" class="font textarea" readonly="true">{{ mm }}</textarea>
+	<br>
+	<div class="page-header">
+		<h3>最大逆向匹配：</h3>
+	</div>
+	<textarea style="height: 10%" class="font textarea" readonly="true">{{ rmm }}</textarea>
+	<br>
+	<div class="page-header">
+		<h3>结巴分词：</h3>
+	</div>
+	<textarea style="height: 10%" class="font textarea" readonly="true">{{ jieba }}</textarea>
+	<br>
+	<div class="page-header">
+		<h3>Mecab分词：</h3>
+	</div>
+	<textarea style="height: 10%" class="font textarea" readonly="true">{{ mecab }}</textarea>
+	<br>
+	<div class="page-header">
+		<h3>深度学习分词（待续）：</h3>
+	</div>
+	<textarea style="height: 10%" class="font textarea" readonly="true">{{ dl_tokenize }}</textarea>
+	<br>
+	<br>
+</div>
+{% endblock %}
