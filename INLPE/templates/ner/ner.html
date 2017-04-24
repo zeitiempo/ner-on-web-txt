@@ -1,0 +1,25 @@
+{% extends "index/base.html" %}
+{% block mainbody %}
+<script type="text/javascript">$("#ner").addClass('active');</script>
+<div class="container theme-showcase" role="main">
+    <form action="../ner/" method="post">
+        {% csrf_token %}
+        <div align="center">
+            <textarea name="sent" style="height: 25%" class="font textarea" placeholder="输入语句">{{ random }}</textarea>
+        </div>
+        <div align="center" style="margin-top: 10px">
+            <input type="submit" class="font btn btn-primary btn-lg" value=" ↓专名识别↓ ">
+        </div>
+    </form>
+    <div class="page-header">
+        <h3>条件随机场专名识别：</h3>
+    </div>
+    <textarea style="height: 10%" class="font textarea" readonly="true">{{ crf_ner }}</textarea>
+    <br>
+    <div class="page-header">
+        <h3>深度学习专名识别（待续）：</h3>
+    </div>
+    <textarea style="height: 10%" class="font textarea" readonly="true">{{ dl_ner }}</textarea>
+    <br>
+</div>
+{% endblock %}
