@@ -1,1 +1,26 @@
+nr[n]
+B_B 6
+B_E 5
+B_S 4
+E_B 3
+E_E 2
+E_S 1
+O 0
 
+nrf[n]
+YES 1
+NO 0
+
+nrj[n]
+B_B 4
+B_M 3
+B_E 2
+B_S 1
+O 0
+
+lb[n] / rb[n]
+B 4
+M 3
+E 2
+S 1
+O 0
