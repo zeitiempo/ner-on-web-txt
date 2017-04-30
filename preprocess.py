@@ -7,7 +7,7 @@ import os
 
 def mode1(f_i,label):
     fi=codecs.open(f_i,"r","utf-8")
-    f_o_prefix=os.path.splitext(f_i)
+    f_o_prefix=(os.path.splitext(f_i))[0]
     f_o=f_o_prefix+r"_loc.txt"
     fo=codecs.open(f_o,"w","utf-8")
     context=fi.readlines()
@@ -33,7 +33,7 @@ def mode1(f_i,label):
 
 def mode2(f_i):
     fi=codecs.open(f_i,"r","utf-8")
-    f_o_prefix=os.path.splitext(f_i)
+    f_o_prefix=(os.path.splitext(f_i))[0]
     f_o=f_o_prefix+r"_wp.txt"
     fo=codecs.open(f_o,"w","utf-8")
     context=fi.readlines()
@@ -81,6 +81,28 @@ def mode3(f_i):
     fo_context.close()
     fi.close()
 
+def mode4(f_i):
+    fi=codecs.open(f_i,"r","utf-8")
+    f_o_prefix=(os.path.splitext(f_i))[0]
+    f_o=f_o_prefix+r"_ntag.txt"
+    fo=codecs.open(f_o,"w","utf-8")
+    context=fi.readlines()
+    for line in context:
+        end=len(line.strip())-1
+        i=0
+        for char in line.strip():
+            if end==0:
+                fo.write(char+" S\n")
+            elif i==0:
+                fo.write(char+" B\n")
+            elif i==end:
+                fo.write(char+" E\n")
+            else:
+                fo.write(char+" M\n")
+            i=i+1
+    fo.close()
+    fi.close()
+
 ###bash###
 #
 #   cat [fi] | sort | uniq -c | sort -k1r | grep -v '\]' | grep -v '/[mtxw]' | grep -v ' [[:digit:]] ' | grep -v '/n[stz]' | sed 's/^[ \t]*//g' > [fo]
@@ -97,5 +119,7 @@ if __name__=='__main__':
         mode2(f_i)
     elif parameter=="3":
         mode3(f_i)
+    elif parameter=="4":
+        mode4(f_i)
     else:
         pass
