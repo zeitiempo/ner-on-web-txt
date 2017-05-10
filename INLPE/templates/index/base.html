@@ -4,35 +4,42 @@
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE==edge">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+		<title>欢迎使用集成自然语言处理环境</title>
+		<!--<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+		{% load static %}
+		<script src="{% static "js/jquery.min.js" %}"></script>
+		<link rel="stylesheet" href="{% static "css/bootstrap.min.css" %}">
+		<link rel="stylesheet" href="{% static "css/bootstrap-theme.min.css" %}">
+		<script src="{% static "js/bootstrap.min.js" %}"></script>
 		<style type="text/css">
 			.font{font-size: 20px;}
 			.textarea{width: 100%;resize: none;}
+			.panel-group{max-height:770px;overflow: auto;}
+            .leftMenu{margin:10px;margin-top:5px;}
+            .leftMenu .panel-heading{font-size:14px;padding-left:20px;height:36px;line-height:36px;color:white;position:relative;cursor:pointer;}/*转成手形图标*/
+            .leftMenu .panel-heading span{position:absolute;right:10px;top:12px;}
+            .leftMenu .menu-item-left{padding: 2px; background: transparent; border:1px solid transparent;border-radius: 6px;}
+            .leftMenu .menu-item-left:hover{background:#C4E3F3;border:1px solid #1E90FF;}
+            .a-color{color: #000000;}
 		</style>
 	</head>
 	<body>
 		<nav class="navbar navbar-inverse navbar-fixed-top">
+			<span class="navbar-brand" style="font-size: 40px;">集成自然语言处理环境</span>
 			<div class="container">
-		        <div class="navbar-header">
-			        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-			            <span class="sr-only">Toggle navigation</span>
-			            <span class="icon-bar"></span>
-			            <span class="icon-bar"></span>
-			            <span class="icon-bar"></span>
-			        </button>
-			        <a class="navbar-brand">集成自然语言处理环境</a>
-		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
 			        <ul class="nav navbar-nav">
+			        	<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
 				        <li id="main"><a href="../main">主页</a></li>
 			            <li id="preprocess"><a href="../preprocess">预处理</a></li>
 			            <li id="tokenize"><a href="../tokenize">分词</a></li>
 			            <li id="ner"><a href="../ner">专名识别</a></li>
 			            <li id="presentation"><a href="../presentation">性能展示</a></li>
-			            <li id="chengyu"><a href="../chengyu">成语展示</a></li>
+			            <li id="word2vec"><a href="../word2vec">词向量</a></li>
+			            <li id="semantic"><a href="../semantic">语义网</a></li>
 			        </ul>
 		        </div>
 			</div>
@@ -44,6 +51,8 @@
         </div>
         {% block mainbody %}
         {% endblock %}
-        <footer></footer>
+        <br>
+        <footer><center class="font">Copyright © 2017 zeitiempo</center></footer>
+        <br>
 	</body>
 </html>
