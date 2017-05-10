@@ -11,6 +11,7 @@ import re
 
 def random_sent():
     sent="欢迎使用集成自然语言处理环境！本站提供了一些针对语料的集成自然语言处理环境，包括预处理、分词、专名识别，并有部分处理任务的实验性能展示。"
+    '''
     #       1    2    3    4    5    6    7    8    9    10 
     c_num=[ "50","40","27","36","34","24","21","4","31","24",
             #genesis,exodus,leviticus,numbers,deuteronomy,
@@ -68,12 +69,13 @@ def random_sent():
             sent=sent.decode("GB2312")
         sent=re.sub(r'([\d]+)','',sent)
         sent=sent[1:]
+    '''
     
     return sent
 
 def mm_tokenize(input_context):
         path=sys.path[0].replace(r"\\",r"/")
-	vocab_in=codecs.open(path+"/INLPE/vocab.txt","r","utf-8")
+	vocab_in=codecs.open(path+"/INLPE/static/dic/vocab.txt","r","utf-8")
 	vocab=vocab_in.readlines()
 	tokenize=[]
 	while input_context:
@@ -93,7 +95,7 @@ def mm_tokenize(input_context):
 
 def rmm_tokenize(input_context):
 	path=sys.path[0].replace(r"\\",r"/")
-        vocab_in=codecs.open(path+"/INLPE/vocab.txt","r","utf-8")
+        vocab_in=codecs.open(path+"/INLPE/static/dic/vocab.txt","r","utf-8")
 	vocab=vocab_in.readlines()
 	tokenize=[]
 	while input_context:
@@ -117,5 +119,5 @@ def jieba_tokenize(input_context):
 	return "/ ".join(tokenize_list)
 
 def mecab_tokenize(input_context):
-    cmd=os.popen("echo "+input_context.encode("utf-8")+r" | mecab -d ./static/mecab_chinese_data_binary_v0.3 -O wakati | sed 's/[[:space:]]/\/ /g'")
+    cmd=os.popen("echo "+input_context.encode("utf-8")+r" | mecab -d ./INLPE/static/mecab_chinese_data_binary_v0.3 -O wakati | sed 's/[[:space:]]/\/ /g'")
     return cmd.read()

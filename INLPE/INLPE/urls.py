@@ -23,4 +23,6 @@ urlpatterns = [
     url(r'^tokenize/',views.tokenize),
     url(r'^ner/',views.ner),
     url(r'^presentation/',views.presentation),
+    url(r'^word2vec/',views.word2vec),
+    url(r'^semantic/',views.semantic),
 ]

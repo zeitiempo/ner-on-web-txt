@@ -5,13 +5,13 @@ import hashlib
 import sys
 import os
 
-def crf_ner(input_context):
+def naive_crf_ner(input_context):
     path=sys.path[0]
     begin=0
     strlen=len(input_context)
     end=len(input_context)-1
     temp_name="tiny.txt"
-    path_temp=path+"/static/crf_ner/"+temp_name
+    path_temp=path+"/INLPE/static/crf_ner/"+temp_name
     temp=codecs.open(path_temp,"w","utf-8")
     for i in xrange(strlen):
         line=""
@@ -34,13 +34,18 @@ def crf_ner(input_context):
         temp.write(line)
     temp.close()
     path=sys.path[0].replace(r"\\",r"/")
-    cmd=os.popen("crfsuite tag -m ./static/crf_ner/char3.model "+path_temp)
+    cmd=os.popen("crfsuite tag -m ./INLPE/static/crf_ner/char3_c4.model "+path_temp)
     ner=cmd.read()
     os.popen("rm "+path_temp).read()
     ner_list=ner.split("\n")
     loc=0
     result=""
     for each in ner_list[0:-2]:
-        result=result+input_context[loc]+"/"+ner_list[loc]+" "
+        if ner_list[loc].startswith("B"):
+            result=result+" "+input_context[loc]
+        elif ner_list[loc].startswith("E"):
+            result=result+input_context[loc]+"/"+(ner_list[loc])[2:]+" "
+        else:
+            result=result+input_context[loc]
         loc=loc+1
     return result
